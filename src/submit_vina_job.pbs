@@ -5,8 +5,8 @@
 #PBS -q normal
 #PBS -m abe
 #PBS -M your.email@domain.com
-#PBS -o ParallelVina.out
-#PBS -e ParallelVina.out
+#PBS -o output.out
+#PBS -e error.out
 
 # Change to the directory where the job was submitted
 cd $PBS_O_WORKDIR
@@ -27,11 +27,11 @@ module load chpc/gnu/parallel-20180622
 export OMP_NUM_THREADS=1  # Prevent threading conflicts with parallel
 
 # Make the main script executable
-chmod +x ./runParallelVina.bash
+chmod +x ./runParallelVINA.bash
 
 # Run the main parallel vina script
 echo "Starting Parallel Vina execution..."
-./runParallelVina.bash
+./runParallelVINA.bash
 
 # Check if the job completed successfully
 if [ $? -eq 0 ]; then
